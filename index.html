@@ -9,33 +9,26 @@
 <script>
 
 let content = '#content'
-let articles = null;
 
 $(document).ready(function(){
 	loadArticles();
 });
 
-//load all articles
-function loadArticles(articles) {
+//get articles from json
+function loadArticles(atrs) {
 	$.getJSON("articles.json", function(json) {
-		alert(json);
+		json.forEach(function(item) { addArticle(item); });
 	});
-
-	if (typeof article !== 'undefined')
-	{
-		articles.forEach(function(item) { addArticle(item); });
-		
-	}
 }
 
 //add individual article
 function addArticle(article) {
 	$(content).append(
-	  $('<article/>').attr("id", article.id).addClass("articlemain").append(
-		$('<h1/>').addClass("articleheader").text(article.title)
-	  ).append(
-		$('<p/>').addClass("articlehmain").text(article.text)
-	  )
+		$('<article/>').attr("id", article.id).addClass("articlemain").append(
+			$('<h1/>').addClass("articleheader").text(article.title)
+		).append(
+			$('<p/>').addClass("articlehmain").text(article.text)
+		)
 	);
 }
 
