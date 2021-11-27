@@ -1,3 +1,7 @@
+body {
+  font-family: 'Outfit', sans-serif;
+}
+
 .divcentered {
   margin: auto;
   border: 3px solid green;
