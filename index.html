@@ -18,7 +18,7 @@ $(document).ready(function(){
 //load all articles
 function loadArticles(articles) {
 	$.getJSON("articles.json", function(json) {
-		alert(JSON.stringify(json));
+		articles = json;
 	});
 
 	if (typeof article !== 'undefined')
