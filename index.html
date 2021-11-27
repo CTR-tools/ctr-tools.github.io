@@ -1,9 +1,43 @@
 <html>
 
 <head>
+<meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="stylesheet.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit">
+
+<script>
+
+let content = '#content'
+let articles = null;
+
+$(document).ready(function(){
+	loadArticles();
+});
+
+//load all articles
+function loadArticles(articles) {
+	$.getJSON("articles.json", function(json) {
+		alert(JSON.stringify(json));
+	});
+
+	if (typeof article !== 'undefined')
+		articles.forEach(function(item) { addArticle(item); });
+}
+
+//add individual article
+function addArticle(article) {
+	$(content).append(
+	  $('<article/>').attr("id", article.id).addClass("articlemain").append(
+		$('<h1/>').addClass("articleheader").text(article.title)
+	  ).append(
+		$('<p/>').addClass("articlehmain").text(article.text)
+	  )
+	);
+}
+
+</script>
+
 </head>
 
 <body>
@@ -20,26 +54,7 @@ A wippy wip.
 	</ul>
 </nav>
 
-<article class="articlemain">
-	<h1 class="articleheader">CTR-tools</h1>
-	<div class="articlebody">
-		<p>Main project aimed to provide converters for most binary formats found in Crash Team Racing (PS1).</p>
-	</div>
-</article>
-
-<article class="articlemain">
-	<h1 class="articleheader">io_ctr_tools</h1>
-	<div class="articlebody">
-		<p>A Blender plugin to import CTR scene files directly.</p>
-	</div>
-</article>
-
-<article class="articlemain">
-	<h1 class="articleheader">CTR-LevEdit</h1>
-	<div class="articlebody">
-		<p>Unity based project, able to load CTR levels. Maybe more in the future.</p>
-	</div>
-</article>
+<div id="content"/>
 
 <footer>
 	once upon a time
