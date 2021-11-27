@@ -18,11 +18,14 @@ $(document).ready(function(){
 //load all articles
 function loadArticles(articles) {
 	$.getJSON("articles.json", function(json) {
-		articles = json;
+		articles = JSON.parse(json);
 	});
 
 	if (typeof article !== 'undefined')
+	{
 		articles.forEach(function(item) { addArticle(item); });
+		
+	}
 }
 
 //add individual article
