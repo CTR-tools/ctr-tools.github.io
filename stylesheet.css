@@ -1,0 +1,16 @@
+.divcentered {
+  margin: auto;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+#page {
+  width: 80%;
+  max-width: 1080px;
+}
+
+.imgcentered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
