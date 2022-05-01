@@ -33,6 +33,10 @@ function updateRgbControl() {
 	g8 = g / 31 * 255;
 	b8 = b / 31 * 255;
 
+	document.getElementById('red8').innerText = Math.round(r8);
+	document.getElementById('green8').innerText = Math.round(g8);
+	document.getElementById('blue8').innerText = Math.round(b8);
+
 	document.getElementById('redperc').innerText = (r / 31 * 100).toFixed(2) + '%';
 	document.getElementById('greenperc').innerText = (g / 31 * 100).toFixed(2) + '%';
 	document.getElementById('blueperc').innerText = (b / 31 * 100).toFixed(2) + '%';
@@ -53,29 +57,32 @@ function updateRgbControl() {
 
 		<table id="sliders">
 
-			<tr><td>Binary:</td><td colspan="3"><input type="text" id="resultbin" /></td></tr>
-			<tr><td>Hex:</td><td colspan="3"><input type="text" id="resulthex" /></td></tr>
+			<tr><td>Binary:</td><td colspan="4"><input type="text" id="resultbin" /></td></tr>
+			<tr><td>Hex:</td><td colspan="4"><input type="text" id="resulthex" /></td></tr>
 
 			<tr>
 				<td>Red</td>
 				<td><input type="range" min="0" max="31" value="0" class="slider" id="red" oninput="updateRgbControl()"></td>
+				<td><span id="red8">0</span></td>
 				<td><span id="redval">00000</span></td>
 				<td><span id="redperc">0%</span></td>
 			</tr>
 			<tr>
 				<td>Green</td>
 				<td><input type="range" min="0" max="31" value="0" class="slider" id="green" oninput="updateRgbControl()"></td>
+				<td><span id="green8">0</span></td>
 				<td><span id="greenval">00000</span></td>
 				<td><span id="greenperc">0%</span></td>
 			</tr>
 			<tr>
 				<td>Blue</td>
 				<td><input type="range" min="0" max="31" value="0" class="slider" id="blue" oninput="updateRgbControl()"></td>
+				<td><span id="blue8">0</span></td>
 				<td><span id="blueval">00000</span></td>
 				<td><span id="blueperc">0%</span></td>
 			</tr>
 
-			<tr><td colspan="4">
+			<tr><td colspan="5">
 				<input type="checkbox" id="stb" oninput="updateRgbControl()">
 					<label for="stb">Semi-transparent bit</label>
 				</input>
