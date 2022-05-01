@@ -1,0 +1,87 @@
+<script>
+
+function dec2bin(dec) {
+  return padLeadingZeros((dec >>> 0).toString(2), 5);
+}
+
+function dec2hex(dec) {
+  return '0x'+padLeadingZeros((dec >>> 0).toString(16), 4).toUpperCase();
+}
+
+function colorhex(dec) {
+  return padLeadingZeros((dec >>> 0).toString(16), 2);
+}
+
+function padLeadingZeros(num, size) {
+    var s = num+"";
+    while (s.length < size) s = "0" + s;
+    return s;
+}
+
+function updateRgbControl() {
+
+	r = document.getElementById('red').value;
+	g = document.getElementById('green').value;
+	b = document.getElementById('blue').value;
+	stb = document.getElementById('stb').checked ? 1 : 0;
+
+	document.getElementById('redval').innerText = dec2bin(r);
+	document.getElementById('greenval').innerText = dec2bin(g);
+	document.getElementById('blueval').innerText = dec2bin(b);
+
+	r8 = r / 31 * 255;
+	g8 = g / 31 * 255;
+	b8 = b / 31 * 255;
+
+	document.getElementById('redperc').innerText = (r / 31 * 100).toFixed(2) + '%';
+	document.getElementById('greenperc').innerText = (g / 31 * 100).toFixed(2) + '%';
+	document.getElementById('blueperc').innerText = (b / 31 * 100).toFixed(2) + '%';
+
+	document.getElementById('resultbin').value = (document.getElementById('stb').checked ? '1' : '0') + dec2bin(b) + dec2bin(g) + dec2bin(r);
+
+	document.getElementById('sliders').style.backgroundColor = '#' + colorhex(r8) + colorhex(g8) + colorhex(b8);
+
+	result = stb << 15 | b << 10 | g << 5 | r;
+
+	document.getElementById('resulthex').value = dec2hex(result);
+}
+</script>
+
+<body style="font-family: Courier New, serif" onload="updateRgbControl()">
+
+	<div class="rgb_control" style="border: solid 1px black; margin: 1em; padding: 1em;">
+
+		<table id="sliders">
+
+			<tr><td>Binary:</td><td colspan="3"><input type="text" id="resultbin" /></td></tr>
+			<tr><td>Hex:</td><td colspan="3"><input type="text" id="resulthex" /></td></tr>
+
+			<tr>
+				<td>Red</td>
+				<td><input type="range" min="0" max="31" value="0" class="slider" id="red" oninput="updateRgbControl()"></td>
+				<td><span id="redval">00000</span></td>
+				<td><span id="redperc">0%</span></td>
+			</tr>
+			<tr>
+				<td>Green</td>
+				<td><input type="range" min="0" max="31" value="0" class="slider" id="green" oninput="updateRgbControl()"></td>
+				<td><span id="greenval">00000</span></td>
+				<td><span id="greenperc">0%</span></td>
+			</tr>
+			<tr>
+				<td>Blue</td>
+				<td><input type="range" min="0" max="31" value="0" class="slider" id="blue" oninput="updateRgbControl()"></td>
+				<td><span id="blueval">00000</span></td>
+				<td><span id="blueperc">0%</span></td>
+			</tr>
+
+			<tr><td colspan="4">
+				<input type="checkbox" id="stb" oninput="updateRgbControl()">
+					<label for="stb">Semi-transparent bit</label>
+				</input>
+			</td></tr>
+		</table>
+
+	</div>
+
+</body>
