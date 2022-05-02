@@ -5,7 +5,7 @@ function dec2bin(dec) {
 }
 
 function dec2hex(dec) {
-  return '0x'+padLeadingZeros((dec >>> 0).toString(16), 4).toUpperCase();
+  return padLeadingZeros((dec >>> 0).toString(16), 4).toUpperCase();
 }
 
 function colorhex(dec) {
@@ -18,38 +18,49 @@ function padLeadingZeros(num, size) {
     return s;
 }
 
+function $(element) {
+	return document.getElementById(element);
+}
+
 function updateRgbControl() {
 
-	r = document.getElementById('red').value;
-	g = document.getElementById('green').value;
-	b = document.getElementById('blue').value;
-	stb = document.getElementById('stb').checked ? 1 : 0;
-
-	document.getElementById('redval').innerText = dec2bin(r);
-	document.getElementById('greenval').innerText = dec2bin(g);
-	document.getElementById('blueval').innerText = dec2bin(b);
+	r = $('red').value;
+	g = $('green').value;
+	b = $('blue').value;
+	stp = $('stp').checked ? 1 : 0;
 
 	r8 = r / 31 * 255;
 	g8 = g / 31 * 255;
 	b8 = b / 31 * 255;
 
-	document.getElementById('red8').innerText = Math.round(r8);
-	document.getElementById('green8').innerText = Math.round(g8);
-	document.getElementById('blue8').innerText = Math.round(b8);
+	color16 = stp << 15 | b << 10 | g << 5 | r;
+	color24 = (colorhex(r8) + colorhex(g8) + colorhex(b8)).toUpperCase();
 
-	document.getElementById('redperc').innerText = (r / 31 * 100).toFixed(2) + '%';
-	document.getElementById('greenperc').innerText = (g / 31 * 100).toFixed(2) + '%';
-	document.getElementById('blueperc').innerText = (b / 31 * 100).toFixed(2) + '%';
+	$('resultbin').value = ($('stp').checked ? '1' : '0') + dec2bin(b) + dec2bin(g) + dec2bin(r);
+	$('resulthex').value = dec2hex(color16);
+	$('resulthex888').value = color24 + '';
+	
+	$('redval').innerText = dec2bin(r);
+	$('greenval').innerText = dec2bin(g);
+	$('blueval').innerText = dec2bin(b);
 
-	document.getElementById('resultbin').value = (document.getElementById('stb').checked ? '1' : '0') + dec2bin(b) + dec2bin(g) + dec2bin(r);
+	$('red8').innerText = Math.round(r8);
+	$('green8').innerText = Math.round(g8);
+	$('blue8').innerText = Math.round(b8);
 
-	document.getElementById('sliders').style.backgroundColor = '#' + colorhex(r8) + colorhex(g8) + colorhex(b8);
+	$('redperc').innerText = (r / 31 * 100).toFixed(2) + '%';
+	$('greenperc').innerText = (g / 31 * 100).toFixed(2) + '%';
+	$('blueperc').innerText = (b / 31 * 100).toFixed(2) + '%';
 
-	result = stb << 15 | b << 10 | g << 5 | r;
-
-	document.getElementById('resulthex').value = dec2hex(result);
+	$('preview').style.backgroundColor = '#' + color24;
 }
 </script>
+
+<style>
+td {
+  padding:6px 4px;
+}
+</style>
 
 <body style="font-family: Courier New, serif" onload="updateRgbControl()">
 
@@ -57,8 +68,9 @@ function updateRgbControl() {
 
 		<table id="sliders">
 
-			<tr><td>Binary:</td><td colspan="4"><input type="text" id="resultbin" /></td></tr>
-			<tr><td>Hex:</td><td colspan="4"><input type="text" id="resulthex" /></td></tr>
+			<tr><td>Binary (5551):</td><td colspan="4"><input type="text" id="resultbin" /></td></tr>
+			<tr><td>Hex (5551):</td><td colspan="4"><input type="text" id="resulthex" /></td></tr>
+			<tr><td>Hex (888):</td><td colspan="4"><input type="text" id="resulthex888" /></td></tr>
 
 			<tr>
 				<td>Red</td>
@@ -83,10 +95,12 @@ function updateRgbControl() {
 			</tr>
 
 			<tr><td colspan="5">
-				<input type="checkbox" id="stb" oninput="updateRgbControl()">
-					<label for="stb">Semi-transparent bit</label>
+				<input type="checkbox" id="stp" oninput="updateRgbControl()">
+					<label for="stp">Semi-transparency bit</label>
 				</input>
 			</td></tr>
+			
+			<tr id="preview" style="height: 64px;"><td style="border: solid 1px black;" colspan="5"</td></tr>
 		</table>
 
 	</div>
