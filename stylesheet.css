@@ -4,7 +4,6 @@ body {
 
 .divcentered {
   margin: auto;
-  border: 3px solid green;
   padding: 10px;
 }
 
@@ -19,11 +18,53 @@ body {
   margin-right: auto;
 }
 
+.logo {
+	padding-bottom: 1em;
+	padding-top: 1em;
+}
+
+h1 {
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
 .articlemain {
+	margin-top: .5em;
+	margin-bottom: 1.5em;
 }
 
-.articleeheader {
+.articleheader {
+	 font-family: 'Montserrat', sans-serif;
 }
 
-.articlebody {
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #444444;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+
+.ytfavicon {
+	vertical-align: middle;
 }

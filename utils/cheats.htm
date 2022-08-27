@@ -1,0 +1,114 @@
+<script>
+
+function dec2bin(dec) {
+  return padLeadingZeros((dec >>> 0).toString(2), 5);
+}
+
+function dec2hex(dec) {
+  return padLeadingZeros((dec >>> 0).toString(16), 4).toUpperCase();
+}
+
+function colorhex(dec) {
+  return padLeadingZeros((dec >>> 0).toString(16), 2);
+}
+
+function padLeadingZeros(num, size) {
+    var s = num+"";
+    while (s.length < size) s = "0" + s;
+    return s;
+}
+
+function $(element) {
+	return document.getElementById(element);
+}
+
+/*
+function updateRgbControl() {
+
+	r = $('red').value;
+	g = $('green').value;
+	b = $('blue').value;
+	stp = $('stp').checked ? 1 : 0;
+
+	r8 = r / 31 * 255;
+	g8 = g / 31 * 255;
+	b8 = b / 31 * 255;
+
+	color16 = stp << 15 | b << 10 | g << 5 | r;
+	color24 = (colorhex(r8) + colorhex(g8) + colorhex(b8)).toUpperCase();
+
+	$('resultbin').value = ($('stp').checked ? '1' : '0') + dec2bin(b) + dec2bin(g) + dec2bin(r);
+	$('resulthex').value = dec2hex(color16);
+	$('resulthex888').value = color24 + '';
+	
+	$('redval').innerText = dec2bin(r);
+	$('greenval').innerText = dec2bin(g);
+	$('blueval').innerText = dec2bin(b);
+
+	$('red8').innerText = Math.round(r8);
+	$('green8').innerText = Math.round(g8);
+	$('blue8').innerText = Math.round(b8);
+
+	$('redperc').innerText = (r / 31 * 100).toFixed(2) + '%';
+	$('greenperc').innerText = (g / 31 * 100).toFixed(2) + '%';
+	$('blueperc').innerText = (b / 31 * 100).toFixed(2) + '%';
+
+	$('preview').style.backgroundColor = '#' + color24;
+}
+*/
+
+function cheatString(cheatname) {
+	result = '';
+	cheatname = cheatname.toUpperCase();
+
+	for (var i = 0; i < cheatname.length; i++) {
+		switch(cheatname.charAt(i)) {
+			case 'L':
+			case 'W': result = result + 'Left'; break;
+			case 'R':
+			case 'E': result = result + 'Right'; break;
+			case 'D':
+			case 'S': result = result + 'Down'; break;
+			case 'U':
+			case 'N': result = result + 'Up'; break;
+			case 'C':
+			case 'O': result = result + 'Circle'; break;
+			case 'X':
+			case 'B': result = result + 'Cross'; break;
+			case 'S':
+			case 'A': result = result + 'Square'; break;
+			case 'T': result = result + 'Triangle'; break;
+			case 'P': result = result + 'Triangle'; break;
+			default:  result = result + '[___]';
+		}
+		
+		if (i < cheatname.length - 1)
+			result = result + ', ';
+	}
+	
+	return result;
+}
+
+function processCheat() {
+	$('cheatoutput').innerText = cheatString($('cheatinput').value);
+}
+
+</script>
+
+<style>
+td {
+  padding:6px 4px;
+}
+
+</style>
+
+<body style="font-family: Courier New, serif" onload="processCheat()">
+
+	<div class="cheat_control" style="border: solid 1px black; margin: 1em; padding: 1em;">
+		<table id="sliders">
+			<tr><td>Cheat input:</td><td><input type="text" id="cheatinput" oninput="processCheat()" /></td></tr>
+			<tr><td>Cheat output:</td><td><span id="cheatoutput" /></td></tr>
+		</table>
+	</div>
+
+</body>

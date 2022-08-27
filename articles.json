@@ -1,17 +1,30 @@
 [
 	{
-		"id": "id1",
+		"id": "repo_tools",
 		"title": "CTR-tools",
-		"text": "Main project aimed to provide converters for most binary formats found in Crash Team Racing (PS1)."
+		"text": "A toolset aimed to provide converters for most binary formats found in Crash Team Racing (PS1).",
+		"lang": "C#",
+		"link": "https://github.com/CTR-tools/CTR-tools"
 	},
 	{
-		"id": "id2",
+		"id": "repo_modsdk",
+		"title": "CTR-ModSDK",
+		"text": "CTR-ModSDK is a powerful modding toolkit that allows to write custom C code for the game, compile it using modern GCC toolchain and debug it in PCSX-Redux in real time.",
+		"lang": "C, Python",
+		"link": "https://github.com/CTR-tools/CTR-ModSDK"
+	},	
+	{
+		"id": "repo_blender",
 		"title": "io_ctr_tools",
-		"text": "A Blender plugin to import CTR scene files directly."
+		"text": "A Blender plugin to import CTR scene files directly from game files.",
+		"lang": "Python",
+		"link": "https://github.com/CTR-tools/io_ctr_tools"
 	},
 	{
-		"id": "id3",
+		"id": "repo_editor",
 		"title": "CTR-LevEdit",
-		"text": "Unity based project, able to load CTR levels. Maybe more in the future."
+		"text": "Unity based project, so far able to load CTR levels. Hopefully more in the future.",
+		"lang": "C#",
+		"link": "https://github.com/CTR-tools/CTR-LevEdit"
 	}
 ]

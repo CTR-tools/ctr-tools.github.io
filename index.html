@@ -5,6 +5,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="stylesheet.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 
 <script>
 
@@ -25,9 +26,9 @@ function loadArticles(atrs) {
 function addArticle(article) {
 	$(content).append(
 		$('<article/>').attr("id", article.id).addClass("articlemain").append(
-			$('<h1/>').addClass("articleheader").text(article.title)
+			$('<h1/>').addClass("articleheader").append($('<a/>').text(article.title).attr('href', article.link))
 		).append(
-			$('<p/>').addClass("articlehmain").text(article.text)
+			$('<p/>').addClass("articlemain").text(article.text)
 		)
 	);
 }
@@ -38,23 +39,40 @@ function addArticle(article) {
 
 <body>
 <div id="page" class="divcentered">
-<img id="logo" class="imgcentered" src="https://raw.githubusercontent.com/CTR-tools/CTR-tools/master/ctr-tools-logo.png" alt="ctr-tools logo"></img>
 
-A wippy wip.
+	<div style="width:100%; text-align: center; margin-top: 1em">
+		<div>Crash Team Racing modding community</div>
+		<div>presents</div>
+	</div>
 
-<nav>
-	<ul>
-		<li><a href="https://ctr-tools.github.io"><button>Main</button></a></li>
-		<li><a href="https://github.com/CTR-tools/CTR-tools/releases/latest"><button>Releases</button></a></li>
-		<li><a href="https://discord.gg/WHkuh2n"><button>Discord</button></a></li>
-	</ul>
-</nav>
 
-<div id="content"/>
+	<img id="logo" class="imgcentered logo" src="https://raw.githubusercontent.com/CTR-tools/CTR-tools/master/ctr-tools-logo.png" alt="ctr-tools logo"></img>
 
-<footer>
-	once upon a time
-</footer>
+	<nav>
+		<ul>
+			<li><a href="https://github.com/CTR-tools/CTR-tools/releases/latest"><img class="ytfavicon" src="images\ghfavicon.png" /> Download CTR-tools</a></li>
+			<li><a href="https://github.com/CTR-tools/CTR-ModSDK/releases/latest"><img class="ytfavicon" src="images\ghfavicon.png" /> Download ModSDK</a></li>
+			<li><a href="https://discord.gg/WHkuh2n">Discord</a></li>
+		</ul>
+	</nav>
+	
+	<nav>
+		<ul>
+			<li><a href="https://www.youtube.com/c/DCxDemo"><img class="ytfavicon" src="images\ytfavicon.png" /> DCxDemo</a></li>
+			<li><a href="https://www.youtube.com/c/Darkaiser"><img class="ytfavicon" src="images\ytfavicon.png" /> Darkaiser</a></li>
+			<li><a href="https://www.youtube.com/c/theredhotbr"><img class="ytfavicon" src="images\ytfavicon.png" /> TheRedhotbr</a></li>
+		</ul>
+	</nav>
+
+	<div id="content"/>
+
 </div>
+
+
+	<div id="utils">
+		<a href="utils\rgb16.htm">RGB16 online tool</a><br>
+		<a href="utils\cheats.htm">Gex/Ctr cheat mnemonics helper</a>
+	</div>
+
 </body>
 </html>
