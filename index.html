@@ -1,73 +1,74 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-<meta charset="UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet" href="stylesheet.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-
-<script>
-
-let content = '#content'
-
-$(document).ready(function(){
-	loadArticles();
-});
-
-//get articles from json
-function loadArticles(atrs) {
-	$.getJSON("articles.json", function(json) {
-		json.forEach(function(item) { addArticle(item); });
-	});
-}
-
-//add individual article
-function addArticle(article) {
-	$(content).append(
-		$('<article/>').attr("id", article.id).addClass("articlemain").append(
-			$('<h1/>').addClass("articleheader").append($('<a/>').text(article.title).attr('href', article.link))
-		).append(
-			$('<p/>').addClass("articlemain").text(article.text)
-		)
-	);
-}
-
-</script>
-
+	<meta charset="UTF-8">
+	<title>CTR-tools</title>
+	<link rel="preload" href="stylesheet.css" as="style" />
+	<link rel="preload" href="articles.js" as="script" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit&display=swap"> 
+	<link rel="stylesheet" href="stylesheet.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="articles.js"></script>
 </head>
 
 <body>
 <div id="page" class="divcentered">
 
-	<div style="width:100%; text-align: center; margin-top: 1em">
+	<div class="pageheader">
 		<div>Crash Team Racing modding community</div>
 		<div>presents</div>
+		<a href="https://ctr-tools.github.io">
+			<img id="logo" class="logo" src="https://raw.githubusercontent.com/CTR-tools/CTR-tools/master/ctr-tools-logo.png" alt="ctr-tools logo"></img>
+		</a>
 	</div>
 
-
-	<img id="logo" class="imgcentered logo" src="https://raw.githubusercontent.com/CTR-tools/CTR-tools/master/ctr-tools-logo.png" alt="ctr-tools logo"></img>
-
-	<nav>
+	<nav class="main_menu">
 		<ul>
-			<li><a href="https://github.com/CTR-tools/CTR-tools/releases/latest"><img class="ytfavicon" src="images\ghfavicon.png" /> Download CTR-tools</a></li>
-			<li><a href="https://github.com/CTR-tools/CTR-ModSDK/releases/latest"><img class="ytfavicon" src="images\ghfavicon.png" /> Download ModSDK</a></li>
-			<li><a href="https://discord.gg/WHkuh2n">Discord</a></li>
+			<li>
+				<a href="https://github.com/CTR-tools/CTR-tools/releases/latest">
+					<img class="ytfavicon" src="images/ghfavicon.png" />
+					<span>Download CTR-tools</span>
+				</a>
+			</li>
+			<li>
+				<a href="https://github.com/CTR-tools/CTR-ModSDK/releases/latest">
+					<img class="ytfavicon" src="images/ghfavicon.png" />
+					<span>Download ModSDK</span>
+				</a>
+			</li>
 		</ul>
-	</nav>
-	
-	<nav>
 		<ul>
-			<li><a href="https://www.youtube.com/c/DCxDemo"><img class="ytfavicon" src="images\ytfavicon.png" /> DCxDemo</a></li>
-			<li><a href="https://www.youtube.com/c/Darkaiser"><img class="ytfavicon" src="images\ytfavicon.png" /> Darkaiser</a></li>
-			<li><a href="https://www.youtube.com/c/theredhotbr"><img class="ytfavicon" src="images\ytfavicon.png" /> TheRedhotbr</a></li>
+			<li>
+				<a href="https://discord.gg/WHkuh2n">
+					<img class="ytfavicon" src="images/dcfavicon.png"/>
+					<span>Discord</span>
+				</a>
+			</li>
+			<li>
+				<a href="https://www.youtube.com/@DCxDemo">
+					<img class="ytfavicon" src="images/ytfavicon.png"/>
+					<span>DCxDemo</span>
+				</a>
+			</li>
+			<li>
+				<a href="https://www.youtube.com/@Darkaiser">
+					<img class="ytfavicon" src="images/ytfavicon.png"/>
+					<span>Darkaiser</span>
+				</a>
+			</li>
+			<li>
+				<a href="https://www.youtube.com/@TheRedhotbr">
+					<img class="ytfavicon" src="images/ytfavicon.png"/>
+					<span>TheRedhotbr</span>
+				</a>
+			</li>
 		</ul>
 	</nav>
 
 	<div id="content"/>
 
 </div>
-
 
 	<div id="utils">
 		<a href="utils\rgb16.htm">RGB16 online tool</a><br>
