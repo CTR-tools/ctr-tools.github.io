@@ -12,7 +12,14 @@
 		"text": "CTR-ModSDK is a powerful modding toolkit that allows to write custom C code for the game, compile it using modern GCC toolchain and debug it in PCSX-Redux in real time.",
 		"lang": "C, Python",
 		"link": "https://github.com/CTR-tools/CTR-ModSDK"
-	},	
+	},
+	{
+		"id": "repo_cpp_editor",
+		"title": "CrashTeamEditor",
+		"text": "Allows to improt an OBJ file and edit most essential game specific data.",
+		"lang": "C++",
+		"link": "https://github.com/mateusfavarin/CrashTeamEditor"
+	},
 	{
 		"id": "repo_blender",
 		"title": "io_ctr_tools",
@@ -21,7 +28,7 @@
 		"link": "https://github.com/CTR-tools/io_ctr_tools"
 	},
 	{
-		"id": "repo_editor",
+		"id": "repo_unity_editor",
 		"title": "CTR-LevEdit",
 		"text": "Unity based project, so far able to load CTR levels. Hopefully more in the future.",
 		"lang": "C#",
