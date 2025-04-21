@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="preload" href="/stylesheet.css" as="style" />
+	<link rel="stylesheet" href="/stylesheet.css" />
+	
 <script>
 
 function dec2bin(dec) {
@@ -102,13 +109,17 @@ td {
 
 </style>
 
-<body style="font-family: Courier New, serif" onload="processCheat()">
+</head>
 
+<body style="font-family: Courier New, serif" onload="processCheat()">
+<div id="page" class="divcentered">
 	<div class="cheat_control" style="border: solid 1px black; margin: 1em; padding: 1em;">
 		<table id="sliders">
 			<tr><td>Cheat input:</td><td><input type="text" id="cheatinput" oninput="processCheat()" /></td></tr>
 			<tr><td>Cheat output:</td><td><span id="cheatoutput" /></td></tr>
 		</table>
 	</div>
-
+	<a href="/">Back to main page</a>
+</div>
 </body>
+</html>
