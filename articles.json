@@ -7,6 +7,13 @@
 		"link": "https://github.com/CTR-tools/CTR-tools"
 	},
 	{
+		"id": "repo_cpp_editor",
+		"title": "CrashTeamEditor",
+		"text": "Allows to create custom tracks for the game, import an OBJ file and edit most essential game specific data.",
+		"lang": "C++",
+		"link": "https://github.com/mateusfavarin/CrashTeamEditor"
+	},
+	{
 		"id": "repo_modsdk",
 		"title": "CTR-ModSDK",
 		"text": "CTR-ModSDK is a powerful modding toolkit that allows to write custom C code for the game, compile it using modern GCC toolchain and debug it in PCSX-Redux in real time.",
@@ -14,24 +21,10 @@
 		"link": "https://github.com/CTR-tools/CTR-ModSDK"
 	},
 	{
-		"id": "repo_cpp_editor",
-		"title": "CrashTeamEditor",
-		"text": "Allows to improt an OBJ file and edit most essential game specific data.",
-		"lang": "C++",
-		"link": "https://github.com/mateusfavarin/CrashTeamEditor"
-	},
-	{
-		"id": "repo_blender",
-		"title": "io_ctr_tools",
-		"text": "A Blender plugin to import CTR scene files directly from game files.",
-		"lang": "Python",
+		"id": "repo_decomp",
+		"title": "CTR-in-C",
+		"text": "Crash Team Racing 99 decompilation project based on psx-modding-toolchain.",
+		"lang": "C, Python",
 		"link": "https://github.com/CTR-tools/io_ctr_tools"
-	},
-	{
-		"id": "repo_unity_editor",
-		"title": "CTR-LevEdit",
-		"text": "Unity based project, so far able to load CTR levels. Hopefully more in the future.",
-		"lang": "C#",
-		"link": "https://github.com/CTR-tools/CTR-LevEdit"
 	}
 ]
