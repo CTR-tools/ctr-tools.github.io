@@ -22,9 +22,9 @@
 	},
 	{
 		"id": "repo_decomp",
-		"title": "CTR-in-C",
-		"text": "Crash Team Racing 99 decompilation project based on psx-modding-toolchain.",
-		"lang": "C, Python",
-		"link": "https://github.com/CTR-tools/CTR-in-C"
+		"title": "ctr-native",
+		"text": "Crash Team Racing 99 decompilation project.",
+		"lang": "C",
+		"link": "https://github.com/CTR-tools/ctr-native"
 	}
 ]
